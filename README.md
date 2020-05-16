@@ -24,7 +24,7 @@ We will use a two step process
 ### Step 1:
 
 ```
-./create_table1_jobs.sh
+./create_jobs.sh
 ```
 
 will create a job list, with all the jobs we want to run.
@@ -48,7 +48,7 @@ The job will be skipped if it was done, logs will be removed if it was crashed, 
 
 1. `conda` - by default in the folder `miniconda3` along side these scripts. Change the paths in [generic.sh](generic.sh) to match your setup.
 2. Within Python, save your final results to a file called `results.json` so the script can check if that happened. You can also edit this check for your particular setup (e.g. check for a final model saved).
-3. Save your results in the `runs/<job identifier>` folder. A suggested job identifier is `table1/lr0.05_bs128`, so it will save all your results in a subfolder called `table1`.
+3. Save your results in the `runs/<job identifier>` folder. A suggested job identifier is `<dataset>/lr0.05_bs128`, so it will save all your results in a subfolder called named after your dataset.
 
 
 Note: [run\_locked.sh](run_locked.sh) is necessary because `conda` is not thread safe by itself, and calling update multiple times in different processes leads to incorrect behaviour.
