@@ -12,7 +12,7 @@ This is easy, but it's here for completeness:
 sbatch generic.sh --dataset CIFAR10 --learning-rate 1e-4
 ```
 
-You simply pass the parameters you want to pass to `train_script.py` to `generic.sh` and it'll start the job for you with the appropriate resources and environment set up.
+You simply pass the parameters you want to pass to [train\_script.py](train_script.py) to [generic.sh](generic.sh) and it'll start the job for you with the appropriate resources and environment set up.
 
 ## Starting many jobs
 
@@ -46,11 +46,18 @@ The job will be skipped if it was done, logs will be removed if it was crashed, 
 
 ## Setup requirements summarised
 
-1. `conda` - by default in the folder `miniconda3` along side these scripts. Change the paths in `generic.sh` to match your setup.
+1. `conda` - by default in the folder `miniconda3` along side these scripts. Change the paths in [generic.sh](generic.sh) to match your setup.
 2. Within Python, save your final results to a file called `results.json` so the script can check if that happened. You can also edit this check for your particular setup (e.g. check for a final model saved).
 3. Save your results in the `runs/<job identifier>` folder. A suggested job identifier is `table1/lr0.05_bs128`, so it will save all your results in a subfolder called `table1`.
 
 
-Note: `run_locked.sh` is necessary because `conda` is not thread safe by itself, and calling update multiple times in different processes leads to incorrect behaviour.
+Note: [run\_locked.sh](run_locked.sh) is necessary because `conda` is not thread safe by itself, and calling update multiple times in different processes leads to incorrect behaviour.
 
 Happy Slurming!
+
+
+### Other resources
+
+Check out my other help scripts:
+1. [Train a ResNet to 94% accuracy on CIFAR-10 with only 150 lines of PyTorch](https://gist.github.com/y0ast/d91d09565462125a1eb75acc65da1469)
+2. [FastMNIST - a drop in replacement for PyTorch' MNIST that avoids unnecessary processing - leading to 2-3x speed up on a **GPU**](https://gist.github.com/y0ast/f69966e308e549f013a92dc66debeeb4)
