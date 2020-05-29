@@ -2,7 +2,7 @@
 
 Many labs have converged on using [Slurm](https://slurm.schedmd.com/documentation.html) for managing their shared compute resources.
 It is fairly easy to get going with Slurm, but it quickly gets unintuitive when wanting to run a hyper-parameter search.
-In this repo, I provide some scripts to make starting many jobs painless and without filling up the entire cluster.
+In this repo, I provide some scripts to make starting many jobs painless and easy to control.
 
 ## Starting a single job
 
