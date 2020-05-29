@@ -16,10 +16,16 @@ You simply pass the parameters you want to pass to [train\_script.py](train_scri
 
 ## Starting many jobs
 
-This is more tricky. Generally you have an idea for what ranges to run, but later perhaps want to add more (for example 5 runs per configuration, instead of 3).
-Also some jobs might fail for all sorts of reasons.
+For this use case, Slurm has introduced [Job Arrays](https://slurm.schedmd.com/job_array.html).
+The only identifier that is passed in this case is a simple job array id, which is an integer that starts counting from 1.
+This does not mapp well onto the usual machine learning jobs that requires running over a grid of hyperparameters, you will end up in weird bash scripts with many lines, or complicated logic in python.
+For this use case, I present an easy to use workflow.
+We assume you have an idea for what ranges (e.g. learning rates 0.01 and 0.05) to run, and later perhaps want to add more (for example 5 repetitions per configuration).
+Also we have to live with the fact that some jobs might fail for all sorts of reasons (GPU fails, somebody accidentally unplugged the server, etc).
 Lastly, you don't want to use up all available GPUs as your lab mates will quickly get frustrated with being in the queue.
-We will use a two step process
+
+The core idea of this approach is to use the Slurm job array id to index **lines** in a file!
+No complicated grid indexing just a long list of jobs, and using the Slurm schedules to chew through them.
 
 ### Step 1:
 
@@ -39,21 +45,39 @@ It'll be skipped if so and you won't need to manually check anything.
 ./run_file.sh job_list.txt
 ```
 
-This will start 8 jobs in parallel (using [job arrays](https://slurm.schedmd.com/job_array.html)).
-You can easily change the number by editing the top of the `run_file.sh`.
-It'll check (in `generic.sh`) if a particular job is done already and if it finished correctly.
-The job will be skipped if it was done, logs will be removed if it was crashed, and it will simply be started if nothing was found.
+This will start 8 jobs in parallel using Slurm job arrays.
+You can easily change the number of jobs run in parallel by editing the top of the `run_file.sh`.
+It'll check (in `generic.sh`) if a particular job is done already and if it finished correctly, it'll be skipped if that's the case.
+Otherwise the job will be started and when it's done Slurm will move to the next line in the job list.
 
 ## Setup requirements summarised
 
 1. `conda` - by default in the folder `miniconda3` along side these scripts. Change the paths in [generic.sh](generic.sh) to match your setup.
-2. Within Python, save your final results to a file called `results.json` so the script can check if that happened. You can also edit this check for your particular setup (e.g. check for a final model saved).
+2. Within Python, save your final results to a file called `results.json` so the script can check if the jobs was successful. You can also edit this check for your particular setup (e.g. check for a final model saved).
 3. Save your results in the `runs/<job identifier>` folder. A suggested job identifier is `<dataset>/lr0.05_bs128`, so it will save all your results in a subfolder called named after your dataset.
 
-
 Note: [run\_locked.sh](run_locked.sh) is necessary because `conda` is not thread safe by itself, and calling update multiple times in different processes leads to incorrect behaviour.
+This is only necessary if you have a shared `conda` installation, if instead you use a single environment and mount the same folder on each machine in the cluster then you can simply create the environment once.
+
+I have attempted to comment [generic.sh](generic.sh) as much as possible, so it's easy to see what to change for your Slurm setup!
 
 Happy Slurming!
+
+Let me know if you have any issues with the scripts, or if you see room for improvement. I am happy to accept PRs.
+
+### Useful Commands
+
+Count all GPUs available in partition `normal`:
+```
+sinfo -N --partition normal -o %G | awk -F ':' '{sum += $3} END {print sum}'
+```
+
+Count all GPUs that are part of running jobs in all partitions:
+```
+squeue -t R --format='%b' --all  | awk -F ':' '{sum += $NF} END {print sum}'
+```
+
+Depending on your Slurm setup you will want to tweak the parition (perhaps add a reservation) and not use `--all` in `squeue`.
 
 
 ### Other resources

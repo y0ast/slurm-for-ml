@@ -13,6 +13,9 @@ dataset=$1
 job_file=${dataset}_jobs.txt
 result_dir=${dataset}
 
+# Create a fresh file
+> ${job_file}
+
 for learning_rate in 0.01 0.05 0.1
 do
     for rep in `seq 1 5`
