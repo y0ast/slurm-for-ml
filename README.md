@@ -9,10 +9,10 @@ In this repo, I provide some scripts to make starting many jobs painless and eas
 This is easy, but it's here for completeness:
 
 ```
-sbatch generic.sh --dataset CIFAR10 --learning-rate 1e-4
+sbatch generic.sh train_script.py --dataset CIFAR10 --learning-rate 1e-4
 ```
 
-You simply pass the parameters you want to pass to [train\_script.py](train_script.py) to [generic.sh](generic.sh) and it'll start the job for you with the appropriate resources and environment set up.
+You simply pass the arguments you normally pass to `python` to [generic.sh](generic.sh) and it'll start the job for you on Slurm with a gpu and a `conda` environment set up.
 
 ## Starting many jobs
 
