@@ -77,7 +77,7 @@ Count all GPUs that are part of running jobs in all partitions:
 squeue -t R --format='%b' --all  | awk -F ':' '{sum += $NF} END {print sum}'
 ```
 
-Depending on your Slurm setup you will want to tweak the parition (perhaps add a reservation) and not use `--all` in `squeue`.
+Depending on your Slurm setup you will want to tweak the partition (perhaps add a reservation) and maybe not use `--all` in `squeue`.
 
 
 ### Other resources
