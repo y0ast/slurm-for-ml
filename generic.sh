@@ -46,12 +46,14 @@ else
       fi
 fi
 
-# Set up the environment
-./run_locked.sh miniconda3/bin/conda-env update -f minimal_environment.yml
+# Use this line if you need to create the environment first on a machine
+# ./run_locked.sh miniconda3/bin/conda-env update -f minimal_environment.yml
+
+# Activate the environment
 source miniconda3/bin/activate minimal-environment
 
 # Train the model
-srun python train_script.py $JOB_CMD
+srun python $JOB_CMD
 
 # Move the log file to the job folder
 LOG_DIR=$(find "runs/$JOB_ID" -name "slurm_job_$SLURM_JOB" | xargs dirname)
