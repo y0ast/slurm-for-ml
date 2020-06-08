@@ -17,15 +17,15 @@ You simply pass the arguments you normally pass to `python` to [generic.sh](gene
 ## Starting many jobs
 
 For this use case, Slurm has introduced [Job Arrays](https://slurm.schedmd.com/job_array.html).
-The only identifier that is passed in this case is a simple job array id, which is an integer that starts counting from 1.
-This does not mapp well onto the usual machine learning jobs that requires running over a grid of hyperparameters, you will end up in weird bash scripts with many lines, or complicated logic in python.
+Slurm assigns separate jobs a simple job array id, which is an integer that starts counting from 1.
+This does not map well onto the usual machine learning jobs that requires running over a grid of hyperparameters.
 For this use case, I present an easy to use workflow.
-We assume you have an idea for what ranges (e.g. learning rates 0.01 and 0.05) to run, and later perhaps want to add more (for example 5 repetitions per configuration).
+We assume you have an idea of what ranges (e.g. learning rates 0.01 and 0.05) to run, and later perhaps want to add more (for example 5 repetitions per configuration).
 Also we have to live with the fact that some jobs might fail for all sorts of reasons (GPU fails, somebody accidentally unplugged the server, etc).
 Lastly, you don't want to use up all available GPUs as your lab mates will quickly get frustrated with being in the queue.
 
 The core idea of this approach is to use the Slurm job array id to index **lines** in a file!
-No complicated grid indexing just a long list of jobs, and using the Slurm schedules to chew through them.
+No complicated grid indexing just a long list of jobs, and use the Slurm scheduler to chew through them.
 
 ### Step 1:
 
@@ -37,7 +37,7 @@ will create a job list, with all the jobs we want to run.
 The format for the job list is `<job identifier> <command line flags>`.
 The assumption is that the results will end up in a folder called `runs/<job identifier>/` and that successful jobs have a `results.json` in that folder.
 If we later want to add jobs, we can simply update this script, generate new jobs and the job runner will check if a job was done already!
-It'll be skipped if so and you won't need to manually check anything.
+It'll be skipped if so and you won't need to do any manual checking.
 
 ### Step 2:
 
