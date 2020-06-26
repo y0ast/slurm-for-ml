@@ -31,7 +31,7 @@ else
       JOB_CMD=$(cut -d ' ' -f 2- <<< "$JOB")
 
       # Check if results exists, if so remove log and return
-      if [ -f  runs/"$JOB_ID"/*/results.json ]
+      if [ -f  "$JOB_ID/*/results.json" ]
       then
           echo "Results already done - exiting"
           rm "slurm-$SLURM_JOB.out"
@@ -39,10 +39,10 @@ else
       fi
 
       # This means job failed and we should remove the folder
-      if [ -d  "runs/$JOB_ID" ]
+      if [ -d  "$JOB_ID" ]
       then
           echo "Folder exists, but was unfinished. Deleting logs..."
-          rm -r "runs/$JOB_ID"
+          rm -r "$JOB_ID"
       fi
 fi
 
@@ -56,5 +56,5 @@ source miniconda3/bin/activate minimal-environment
 srun python $JOB_CMD
 
 # Move the log file to the job folder
-LOG_DIR=$(find "runs/$JOB_ID" -name "slurm_job_$SLURM_JOB" | xargs dirname)
-mv slurm-"$SLURM_JOB".out $LOG_DIR
+LOG_DIR=$(find "$JOB_ID" -name "slurm_job_$SLURM_JOB" | xargs dirname)
+mv "slurm-$SLURM_JOB.out" $LOG_DIR

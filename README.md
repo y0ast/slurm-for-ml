@@ -35,7 +35,7 @@ No complicated grid indexing just a long list of jobs, and use the Slurm schedul
 
 will create a job list, with all the jobs we want to run.
 The format for the job list is `<job identifier> <command line flags>`.
-The assumption is that the results will end up in a folder called `runs/<job identifier>/` and that successful jobs have a `results.json` in that folder.
+The assumption is that the results will end up in a folder called `<job identifier>/` (might be a nested folder!) and that successful jobs have a `results.json` in that folder.
 If we later want to add jobs, we can simply update this script, generate new jobs and the job runner will check if a job was done already!
 It'll be skipped if so and you won't need to do any manual checking.
 
@@ -54,7 +54,7 @@ Otherwise the job will be started and when it's done Slurm will move to the next
 
 1. `conda` - by default in the folder `miniconda3` along side these scripts. Change the paths in [generic.sh](generic.sh) to match your setup.
 2. Within Python, save your final results to a file called `results.json` so the script can check if the jobs was successful. You can also edit this check for your particular setup (e.g. check for a final model saved).
-3. Save your results in the `runs/<job identifier>` folder. A suggested job identifier is `<dataset>/lr0.05_bs128`, so it will save all your results in a subfolder called named after your dataset.
+3. Save your results in the `<job identifier>` folder. A suggested job identifier is `<dataset>/lr0.05_bs128`, so it will save all your results in a subfolder called named after your dataset.
 
 Note: [run\_locked.sh](run_locked.sh) is necessary because `conda` is not thread safe by itself, and calling update multiple times in different processes leads to incorrect behaviour.
 This is only necessary if you have a shared `conda` installation, if instead you use a single environment and mount the same folder on each machine in the cluster then you can simply create the environment once.
