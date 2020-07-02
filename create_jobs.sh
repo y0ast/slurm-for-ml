@@ -9,20 +9,21 @@ then
 fi
 
 dataset=$1
+script="train_script.py"
 
 # Create a fresh file
 > ${dataset}_jobs.txt
 
-for learning_rate in 0.01 0.05 0.1
+for rep in `seq 1 5`
 do
-    for rep in `seq 1 5`
+    for learning_rate in 0.01 0.05 0.1
     do
         #Baseline
-        ID=${dataset}/${rep}_${learning_rate}_baseline
-        echo  "${ID} train_script.py --output_folder ${ID} --dataset ${dataset} --learning_rate ${learning_rate}" --baseline >> ${dataset}_jobs.txt
+        output_folder=${dataset}/${rep}_${learning_rate}_baseline
+        echo  "${script} --output_folder ${output_folder} --dataset ${dataset} --learning_rate ${learning_rate} --method baseline" >> ${dataset}_jobs.txt
 
         # My method
-        ID=${dataset}/${rep}_${learning_rate}_mymethod
-        echo  "${ID} train_script.py --output_folder ${ID} --dataset ${dataset} --learning_rate ${learning_rate}" --mymethod >> ${dataset}_jobs.txt
+        output_folder=${dataset}/${rep}_${learning_rate}_mymethod
+        echo  "${script} --output_folder ${output_folder} --dataset ${dataset} --learning_rate ${learning_rate} --method mymethod" >> ${dataset}_jobs.txt
     done
 done

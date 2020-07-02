@@ -1,30 +1,30 @@
-MNIST/1_0.01_baseline train_script.py --output_folder MNIST/1_0.01_baseline --dataset MNIST --learning_rate 0.01 --baseline
-MNIST/1_0.01_mymethod train_script.py --output_folder MNIST/1_0.01_mymethod --dataset MNIST --learning_rate 0.01 --mymethod
-MNIST/2_0.01_baseline train_script.py --output_folder MNIST/2_0.01_baseline --dataset MNIST --learning_rate 0.01 --baseline
-MNIST/2_0.01_mymethod train_script.py --output_folder MNIST/2_0.01_mymethod --dataset MNIST --learning_rate 0.01 --mymethod
-MNIST/3_0.01_baseline train_script.py --output_folder MNIST/3_0.01_baseline --dataset MNIST --learning_rate 0.01 --baseline
-MNIST/3_0.01_mymethod train_script.py --output_folder MNIST/3_0.01_mymethod --dataset MNIST --learning_rate 0.01 --mymethod
-MNIST/4_0.01_baseline train_script.py --output_folder MNIST/4_0.01_baseline --dataset MNIST --learning_rate 0.01 --baseline
-MNIST/4_0.01_mymethod train_script.py --output_folder MNIST/4_0.01_mymethod --dataset MNIST --learning_rate 0.01 --mymethod
-MNIST/5_0.01_baseline train_script.py --output_folder MNIST/5_0.01_baseline --dataset MNIST --learning_rate 0.01 --baseline
-MNIST/5_0.01_mymethod train_script.py --output_folder MNIST/5_0.01_mymethod --dataset MNIST --learning_rate 0.01 --mymethod
-MNIST/1_0.05_baseline train_script.py --output_folder MNIST/1_0.05_baseline --dataset MNIST --learning_rate 0.05 --baseline
-MNIST/1_0.05_mymethod train_script.py --output_folder MNIST/1_0.05_mymethod --dataset MNIST --learning_rate 0.05 --mymethod
-MNIST/2_0.05_baseline train_script.py --output_folder MNIST/2_0.05_baseline --dataset MNIST --learning_rate 0.05 --baseline
-MNIST/2_0.05_mymethod train_script.py --output_folder MNIST/2_0.05_mymethod --dataset MNIST --learning_rate 0.05 --mymethod
-MNIST/3_0.05_baseline train_script.py --output_folder MNIST/3_0.05_baseline --dataset MNIST --learning_rate 0.05 --baseline
-MNIST/3_0.05_mymethod train_script.py --output_folder MNIST/3_0.05_mymethod --dataset MNIST --learning_rate 0.05 --mymethod
-MNIST/4_0.05_baseline train_script.py --output_folder MNIST/4_0.05_baseline --dataset MNIST --learning_rate 0.05 --baseline
-MNIST/4_0.05_mymethod train_script.py --output_folder MNIST/4_0.05_mymethod --dataset MNIST --learning_rate 0.05 --mymethod
-MNIST/5_0.05_baseline train_script.py --output_folder MNIST/5_0.05_baseline --dataset MNIST --learning_rate 0.05 --baseline
-MNIST/5_0.05_mymethod train_script.py --output_folder MNIST/5_0.05_mymethod --dataset MNIST --learning_rate 0.05 --mymethod
-MNIST/1_0.1_baseline train_script.py --output_folder MNIST/1_0.1_baseline --dataset MNIST --learning_rate 0.1 --baseline
-MNIST/1_0.1_mymethod train_script.py --output_folder MNIST/1_0.1_mymethod --dataset MNIST --learning_rate 0.1 --mymethod
-MNIST/2_0.1_baseline train_script.py --output_folder MNIST/2_0.1_baseline --dataset MNIST --learning_rate 0.1 --baseline
-MNIST/2_0.1_mymethod train_script.py --output_folder MNIST/2_0.1_mymethod --dataset MNIST --learning_rate 0.1 --mymethod
-MNIST/3_0.1_baseline train_script.py --output_folder MNIST/3_0.1_baseline --dataset MNIST --learning_rate 0.1 --baseline
-MNIST/3_0.1_mymethod train_script.py --output_folder MNIST/3_0.1_mymethod --dataset MNIST --learning_rate 0.1 --mymethod
-MNIST/4_0.1_baseline train_script.py --output_folder MNIST/4_0.1_baseline --dataset MNIST --learning_rate 0.1 --baseline
-MNIST/4_0.1_mymethod train_script.py --output_folder MNIST/4_0.1_mymethod --dataset MNIST --learning_rate 0.1 --mymethod
-MNIST/5_0.1_baseline train_script.py --output_folder MNIST/5_0.1_baseline --dataset MNIST --learning_rate 0.1 --baseline
-MNIST/5_0.1_mymethod train_script.py --output_folder MNIST/5_0.1_mymethod --dataset MNIST --learning_rate 0.1 --mymethod
+train_script.py --output_folder MNIST/1_0.01_baseline --dataset MNIST --learning_rate 0.01 --baseline
+train_script.py --output_folder MNIST/1_0.01_mymethod --dataset MNIST --learning_rate 0.01 --mymethod
+train_script.py --output_folder MNIST/1_0.05_baseline --dataset MNIST --learning_rate 0.05 --baseline
+train_script.py --output_folder MNIST/1_0.05_mymethod --dataset MNIST --learning_rate 0.05 --mymethod
+train_script.py --output_folder MNIST/1_0.1_baseline --dataset MNIST --learning_rate 0.1 --baseline
+train_script.py --output_folder MNIST/1_0.1_mymethod --dataset MNIST --learning_rate 0.1 --mymethod
+train_script.py --output_folder MNIST/2_0.01_baseline --dataset MNIST --learning_rate 0.01 --baseline
+train_script.py --output_folder MNIST/2_0.01_mymethod --dataset MNIST --learning_rate 0.01 --mymethod
+train_script.py --output_folder MNIST/2_0.05_baseline --dataset MNIST --learning_rate 0.05 --baseline
+train_script.py --output_folder MNIST/2_0.05_mymethod --dataset MNIST --learning_rate 0.05 --mymethod
+train_script.py --output_folder MNIST/2_0.1_baseline --dataset MNIST --learning_rate 0.1 --baseline
+train_script.py --output_folder MNIST/2_0.1_mymethod --dataset MNIST --learning_rate 0.1 --mymethod
+train_script.py --output_folder MNIST/3_0.01_baseline --dataset MNIST --learning_rate 0.01 --baseline
+train_script.py --output_folder MNIST/3_0.01_mymethod --dataset MNIST --learning_rate 0.01 --mymethod
+train_script.py --output_folder MNIST/3_0.05_baseline --dataset MNIST --learning_rate 0.05 --baseline
+train_script.py --output_folder MNIST/3_0.05_mymethod --dataset MNIST --learning_rate 0.05 --mymethod
+train_script.py --output_folder MNIST/3_0.1_baseline --dataset MNIST --learning_rate 0.1 --baseline
+train_script.py --output_folder MNIST/3_0.1_mymethod --dataset MNIST --learning_rate 0.1 --mymethod
+train_script.py --output_folder MNIST/4_0.01_baseline --dataset MNIST --learning_rate 0.01 --baseline
+train_script.py --output_folder MNIST/4_0.01_mymethod --dataset MNIST --learning_rate 0.01 --mymethod
+train_script.py --output_folder MNIST/4_0.05_baseline --dataset MNIST --learning_rate 0.05 --baseline
+train_script.py --output_folder MNIST/4_0.05_mymethod --dataset MNIST --learning_rate 0.05 --mymethod
+train_script.py --output_folder MNIST/4_0.1_baseline --dataset MNIST --learning_rate 0.1 --baseline
+train_script.py --output_folder MNIST/4_0.1_mymethod --dataset MNIST --learning_rate 0.1 --mymethod
+train_script.py --output_folder MNIST/5_0.01_baseline --dataset MNIST --learning_rate 0.01 --baseline
+train_script.py --output_folder MNIST/5_0.01_mymethod --dataset MNIST --learning_rate 0.01 --mymethod
+train_script.py --output_folder MNIST/5_0.05_baseline --dataset MNIST --learning_rate 0.05 --baseline
+train_script.py --output_folder MNIST/5_0.05_mymethod --dataset MNIST --learning_rate 0.05 --mymethod
+train_script.py --output_folder MNIST/5_0.1_baseline --dataset MNIST --learning_rate 0.1 --baseline
+train_script.py --output_folder MNIST/5_0.1_mymethod --dataset MNIST --learning_rate 0.1 --mymethod

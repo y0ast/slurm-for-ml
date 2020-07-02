@@ -1,6 +1,8 @@
 #!/bin/bash
 
-# Edit this if you want more or fewer jobs
+# Expects to be in the same folder as generic.sh
+
+# Edit this if you want more or fewer jobs in parallel
 jobs_in_parallel=8
 
 if [ ! -f "$1" ]
@@ -9,7 +11,10 @@ then
     exit 1
 fi
 
-# Start job using job list text file
-# This line sets right number of jobs based on line numbers and a job name
-# Expects to be in the same folder as generic.sh
-sbatch --array=1-$(wc -l < "$1")%${jobs_in_parallel} --job-name $(basename "$1" .txt) $(dirname "$0")/generic.sh "$1"
+# This convoluted way of counting also works if a final EOL character is missing
+n_lines=$(grep -c '^' "$1")
+
+# Use file name for job name
+job_name=$(basename "$1" .txt)
+
+sbatch --array=1-${n_lines}%${jobs_in_parallel} --job-name ${job_name} $(dirname "$0")/generic.sh "$1"

@@ -1,4 +1,4 @@
-name: minimal-environment
+name: example-environment
 channels:
     - pytorch
     - defaults
