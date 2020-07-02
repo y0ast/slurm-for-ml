@@ -45,7 +45,7 @@ If we later want to add jobs, we can simply update this script, generate new job
 ### Step 2:
 
 ```
-./run_file.sh job_list.txt
+./run_file.sh MNIST_jobs.txt
 ```
 
 This will start 8 jobs in parallel using Slurm job arrays.

@@ -22,10 +22,11 @@ parser.add_argument(
 args = parser.parse_args()
 print(args)
 
-pathlib.Path(args.output_folder).mkdir()
+output_folder = pathlib.Path(args.output_folder)
+output_folder.mkdir(parents=True)
 
-accuracy = torch.rand().item()
+accuracy = torch.rand(1).item()
 
 results = {"accuracy": accuracy}
 results_json = json.dumps(results, indent=4, sort_keys=True)
-(args.output_folder / "results.json").write_text(results_json)
+(output_folder / "results.json").write_text(results_json)
