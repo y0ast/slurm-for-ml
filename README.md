@@ -9,7 +9,7 @@ In this repo, I provide some scripts to make starting many jobs painless and eas
 This is easy, but it's here for completeness:
 
 ```
-sbatch generic.sh train_script.py --dataset CIFAR10 --learning-rate 1e-4
+sbatch generic.sh train_script.py --output_folder CIFAR10/baseline --dataset CIFAR10 --learning_rate 1e-4 --method baseline
 ```
 
 You simply pass the arguments you normally pass to `python` to [generic.sh](generic.sh) and it'll start the job for you on Slurm with a gpu and a `conda` environment set up.

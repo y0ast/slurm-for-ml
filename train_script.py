@@ -14,7 +14,7 @@ parser.add_argument(
     "--learning_rate", type=float, default=0.05, help="Learning rate (default: 0.05)"
 )
 parser.add_argument(
-    "--dataset", required=True, choices=["MNIST", "FashionMNIST"], help="Pick a dataset"
+    "--dataset", required=True, choices=["MNIST", "CIFAR10"], help="Pick a dataset"
 )
 parser.add_argument(
     "--method", required=True, choices=["baseline", "mymethod"], help="Pick a method"
