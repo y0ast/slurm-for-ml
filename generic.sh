@@ -19,6 +19,7 @@ then
     # Not in Slurm Job Array - running in single mode
 
     JOB_ID=$SLURM_JOB_ID
+
     # Just read in what was passed over cmdline
     JOB_CMD="${@}"
 else
