@@ -20,6 +20,7 @@ parser.add_argument(
     "--method", required=True, choices=["baseline", "mymethod"], help="Pick a method"
 )
 args = parser.parse_args()
+
 print(args)
 
 output_folder = pathlib.Path(args.output_folder)

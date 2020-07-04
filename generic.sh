@@ -44,17 +44,18 @@ fi
 # Check if results exists, if so remove slurm log and skip
 if [ -f  "$JOB_OUTPUT/results.json" ]
 then
-      echo "Results already done - exiting"
-      rm "slurm-${JOB_ID}.out"
-      exit 0
+    echo "Results already done - exiting"
+    rm "slurm-${JOB_ID}.out"
+    exit 0
 fi
 
 # Check if the output folder exists at all. We should remove the folder in that case.
 if [ -d  "$JOB_OUTPUT" ]
 then
-      echo "Folder exists, but was unfinished. Deleting logs..."
-      # TODO: figure out if auto removal is a good idea...
-      rm -r "$JOB_OUTPUT"
+    echo "Folder exists, but was unfinished or is ongoing (no results.json)."
+    # It might be worth removing the folder at this point:
+    # rm -r "$JOB_OUTPUT"
+    # Since this is a destructive action it is not on by default
 fi
 
 # Use this line if you need to create the environment first on a machine
