@@ -49,11 +49,13 @@ then
     exit 0
 fi
 
-# Check if the output folder exists at all. We should remove the folder in that case.
+# Check if the output folder exists at all. We could remove the folder in that case.
 if [ -d  "$JOB_OUTPUT" ]
 then
     echo "Folder exists, but was unfinished or is ongoing (no results.json)."
+    echo "Starting job as usual"
     # It might be worth removing the folder at this point:
+    # echo "Removing current output before continuing"
     # rm -r "$JOB_OUTPUT"
     # Since this is a destructive action it is not on by default
 fi
