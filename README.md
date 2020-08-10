@@ -1,4 +1,4 @@
-# Slurm for Machine Learners
+# Slurm for Machine Learning
 
 Many labs have converged on using [Slurm](https://slurm.schedmd.com/documentation.html) for managing their shared compute resources.
 It is fairly easy to get going with Slurm, but it quickly gets unintuitive when wanting to run a hyper-parameter search.
