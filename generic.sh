@@ -10,7 +10,7 @@
 set -e # fail fully on first line failure
 
 # Customize this line to point to conda installation
-path_to_conda="miniconda3"
+path_to_conda="./miniconda3"
 
 echo "Running on $(hostname)"
 
@@ -61,7 +61,7 @@ then
 fi
 
 # Use this line if you need to create the environment first on a machine
-./run_locked.sh ${path_to_conda}/bin/conda-env update -f environment.yml
+# ./run_locked.sh ${path_to_conda}/bin/conda-env update -f environment.yml
 
 # Activate the environment
 source ${path_to_conda}/bin/activate example-environment
@@ -70,4 +70,4 @@ source ${path_to_conda}/bin/activate example-environment
 srun python $JOB_CMD
 
 # Move the log file to the job folder
-mv "slurm-${JOB_ID}.out" ${JOB_OUTPUT}/
+mv "slurm-${JOB_ID}.out" "${JOB_OUTPUT}/"
