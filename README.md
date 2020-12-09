@@ -14,6 +14,8 @@ sbatch generic.sh train_script.py --output_folder CIFAR10/baseline --dataset CIF
 
 You simply pass the arguments you normally pass to `python` to [generic.sh](generic.sh) and it'll start the job for you on Slurm with a gpu and a `conda` environment set up.
 
+**Note:** the `--output_folder` argument is required here. It is necessary down the line to be able to skip jobs that were done already!
+
 ## Starting many jobs
 
 For this use case, Slurm has introduced [Job Arrays](https://slurm.schedmd.com/job_array.html).
