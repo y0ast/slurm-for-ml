@@ -88,3 +88,4 @@ Depending on your Slurm setup you will want to tweak the partition (perhaps add 
 Check out my other help scripts:
 1. [Train a ResNet to 94% accuracy on CIFAR-10 with only 150 lines of PyTorch](https://gist.github.com/y0ast/d91d09565462125a1eb75acc65da1469)
 2. [FastMNIST - a drop in replacement for PyTorch' MNIST that avoids unnecessary processing - leading to 2-3x speed up on a **GPU**](https://gist.github.com/y0ast/f69966e308e549f013a92dc66debeeb4)
+3. [Obtain a dataset with a subset of ImageNet **classes** in PyTorch with minimal changes](https://gist.github.com/y0ast/ad1c59c9f7bfdb530bf5d6a6a12feb0d)
